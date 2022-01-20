@@ -1,9 +1,10 @@
-import path from "path"
-import express from "express"
-import app from "./public/App.js"
-import http from 'http'
-import https from 'https'
-import fs from 'fs'
+const path = require("path")
+const express = require("express")
+const app = require("./public/App.js")
+const http = require('http')
+const https = require('https')
+const fs = require('fs')
+const request = require('request')
 
 const server = express()
 
@@ -11,6 +12,12 @@ const privateKey = fs.readFileSync('privkey1.pem')
 const cert = fs.readFileSync('fullchain1.pem')
 
 server.use(express.static(path.join(__dirname, "public")))
+server.use('/api', (req, res) => {
+    console.log('apirequest')
+    const url = 'http://localhost:3000/api' + req.url
+    console.log(url)
+    request(url, { method: req.method }).pipe(res)
+})
 
 server.get("*", (req, res) => {
     const { html } = app.render({ url: req.url })
