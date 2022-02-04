@@ -21,13 +21,19 @@ body {
 
 body {
 	margin          : 0;
-	padding         : 8px;
+	/* padding         : 8px; */
 	box-sizing      : border-box;
 	font-family     : var(--font);
 	color           : var(--text-color);
 	background-color: var(--bg-color);
 }
 
+* {
+	box-sizing: border-box;
+}
+*:focus {
+    outline: 0;
+}
 h1 {
 	margin    : auto 0;
 	text-align: center;

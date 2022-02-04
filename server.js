@@ -28,7 +28,10 @@ server.get("*", (req, res) => {
     <link rel='stylesheet' href='/global.css'>
     <link rel='stylesheet' href='/bundle.css'>
     <div id="app">${html}</div>
+    <script src="https://raw.githubusercontent.com/MikeMcl/decimal.js/master/decimal.js"></script>
     <script src="/bundle.js"></script>
+    <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+    <link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
   `)
 
     res.end()
